@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz-App</title>
+    <link rel="stylesheet" href="quiz_game.css">
+</head>
+<body>
+    
+    <div class="quiz-container">
+        <h2 id="quiz-question">
+            Question Tag
+        </h2>
+
+        <ul>
+            <li>
+                <input type="radio" class="answer" id="option1" name="quiz-options">
+                <label for="option1" class="text_option1">Option A</label>
+            </li>
+            <li>
+                <input type="radio" class="answer" id="option2" name="quiz-options">
+                <label for="option2" class="text_option2">Option B</label>
+            </li>
+            <li> <!-- name daalne se behaviour same rahega jisse ek hee button per tab hoga -->
+                <input type="radio" class="answer" id="option3" name="quiz-options">
+                <label for="option3" class="text_option3">Option C</label>
+            </li>
+            <li>
+                <input type="radio" class="answer" id="option4" name="quiz-options">
+                <label for="option4" class="text_option4">Option D</label>
+            </li>
+        </ul>
+
+
+        <button id="submit">Submit</button>
+    </div>
+    <script src="quiz_game.js"></script>
+</body>
+</html>
