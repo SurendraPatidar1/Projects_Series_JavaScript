@@ -8,10 +8,10 @@
 const quiz = [
 {
     question:"Which of the following object is the main entry point to all client-side JavaScript features and APIs?",
-    ans1text:" Position",
-    ans2text:" Window",
-    ans3text:" Standard",
-    ans4text:" Location",
+    ans1text:"Position",
+    ans2text:"Window",
+    ans3text:"Standard",
+    ans4text:"Location",
     answer:"Window",
 },
 {
@@ -20,26 +20,34 @@ const quiz = [
     ans2text: "Segmental",
     ans3text: "Standard",
     ans4text: "Lexical",
-    answer: " Lexical",
+    answer:   "Lexical",
 },
 {
     question:"Which of the following methods/operation does javascript use instead of == and !=?",
     ans1text:" JavaScript uses equalto()",
     ans2text:"JavaScript uses equals() and notequals() instead",
-    ans3text:" JavaScript uses bitwise checking",
-    ans4text:" JavaScript uses === and !== instead",
-    answer:" JavaScript uses === and !== instead",
+    ans3text:"JavaScript uses bitwise checking",
+    ans4text:"JavaScript uses === and !== instead",
+    answer:"JavaScript uses === and !== instead",
+},
+{
+    question:"Which of the following object is the main entry point to all client-side JavaScript features and APIs?",
+    ans1text:"Position",
+    ans2text:"Window",
+    ans3text:"Standard",
+    ans4text:"Location",
+    answer:"Window",
 }
-]
+];
 
-const question = document.getElementById("quiz-quesion");
+const question = document.getElementById("quiz-question");
 console.log(question);
 console.log(question.textContent);
 const option1 = document.getElementById("text_option1");
 const option2 = document.getElementById("text_option2");
 const option3 = document.getElementById("text_option3");
 const option4 = document.getElementById("text_option4");
-const answerElement = document.getElementsByClassName("answer");
+const answerElement = document.querySelectorAll(".answer");
 console.log(option1);
 console.log(option2);
 console.log(option3);
@@ -64,7 +72,35 @@ option2.textContent = quiz[currentQuestion].ans2text;
 option3.textContent = quiz[currentQuestion].ans3text;
 option4.textContent = quiz[currentQuestion].ans4text;
 
-console.log("answer element :",answerElement);
+submit.addEventListener("click" , () => {
+    const checkedAns = document.querySelector('input[type="radio"]:checked');
+    console.log(checkedAns);
+    // console.log(checkedAns.nextElementSibling.textContent);
+    if(checkedAns === null){
+        alert("Please select an answer");
+    }
+    else{
+        if(checkedAns.nextElementSibling.textContent === quiz[currentQuestion].answer)
+        {
+            score++;
+        }
+
+        currentQuestion++;
+
+        if(currentQuestion < quiz.length){
+            question.textContent = quiz[currentQuestion].question;
+            option1.textContent = quiz[currentQuestion].ans1text;
+            option2.textContent = quiz[currentQuestion].ans2text;
+            option3.textContent = quiz[currentQuestion].ans3text;
+            option4.textContent = quiz[currentQuestion].ans4text;
+
+            checkedAns.checked = false;
+        }else{
+            alert("Your Score is " +  score  + " out of " + quiz.length);
+            location.reload();
+        }
+    }
+})
 
 
 
