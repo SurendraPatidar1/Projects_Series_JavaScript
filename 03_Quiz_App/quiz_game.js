@@ -101,7 +101,3 @@ submit.addEventListener("click" , () => {
         }
     }
 })
-
-
-
-
