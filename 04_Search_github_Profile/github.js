@@ -1,4 +1,4 @@
-const url = "https://api.github.com/users";
+const baseUrl = "https://api.github.com/users";
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchBtn");
 const profileContainer = document.getElementById("profileContainer");
@@ -21,7 +21,7 @@ const generateProfile = (profile) => {
                 </div>
 
             </div>
-            <a href="profile.repos_url">
+            <a href="profile.html_url">
             <button class="primary-btn">Check Profile</button>
             </a>
         </div>
@@ -55,12 +55,14 @@ const fetchProfile = async() => {
 
     loading.innerText = "loading....";
     loading.style.color = "black";
+
+
     try {
-        const res = await fetch(`${url}/${username}`);
+        const res = await fetch(`${baseUrl}/${username}`);
         const data = await res.json();
         // console.log("data",data);
 
-        if(data.bio)
+        if(res.ok)
         {
             loading.innerText = "";
             profileContainer.innerHTML = generateProfile(data);
@@ -71,7 +73,8 @@ const fetchProfile = async() => {
         console.log("data",data);
     } catch (error) {
         console.log({ error });
-        loading.innerText = "";
+        loading.innerText = "An error occurred. Please try again.";
+        loading.style.color = "red";
     }
 };
 
