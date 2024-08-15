@@ -1,0 +1,24 @@
+@import url("");
+:root{
+    --primary:#393e3e;
+    --secondary:#145c72;
+    --secondary-light:#00a0d1;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-size: 1.6rem;
+}
+.background{
+    height: 100vh;    
+    background-image: url("https://unsplash.com/photos/brown-wooden-framed-candle-holder-on-top-of-books-ip9R11FMbV8?utm_content=creditShareLink&utm_medium=referral&utm_source=unsplash");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
